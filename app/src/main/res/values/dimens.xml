@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_bar_icon_vertical_margin">6dp</dimen>
+    <dimen name="padding_bottom_covering_cta">104dp</dimen>
+    <dimen name="top_bar_start_icon_start_margin">16dp</dimen>
+    <dimen name="top_bar_end_icon_end_margin">10dp</dimen>
+</resources>

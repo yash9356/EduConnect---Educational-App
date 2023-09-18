@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/btn_back"
+        style="@style/IconButton.Top.Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="4dp"
+        android:layout_marginStart="@dimen/top_bar_start_icon_start_margin"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/SubTitle.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_marginStart="4dp"
+        android:paddingHorizontal="8dp"
+        android:text="@string/top_bar"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/btn_info"
+        style="@style/IconButton.Top"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/top_bar_end_icon_end_margin"
+        android:contentDescription="@string/info"
+        android:src="@drawable/ic_info"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</androidx.appcompat.widget.Toolbar>

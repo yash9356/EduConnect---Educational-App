@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EduConnect - Educational App</string>
+    <string name="info">Info</string>
+    <string name="short_app_name">EduConnect</string>
+    <string name="company_slogan">Learn Your Way, Anytime, Anywhere!</string>
+    <string name="network_error_please_try">Network error! Please try again\n</string>
+    <string name="try_again">Try again</string>
+    <string name="top_bar">Top bar</string>
+    <string name="navigation_drawer_open">Open Drawer</string>
+    <string name="navigation_drawer_close">Close drawer\n</string>
+</resources>

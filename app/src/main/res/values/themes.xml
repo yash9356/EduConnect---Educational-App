@@ -163,6 +163,7 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <!--    Button styles-->
     <style name="ShortButton">
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@drawable/background_short_btn</item>
@@ -181,4 +182,104 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="BroadButton">
+        <item name="android:background">@drawable/background_broad_btn</item>
+        <item name="elevation">40dp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">54dp</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="MediumButton">
+        <item name="android:background">@drawable/background_medium_btn</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MediumButton.WhiteBackground">
+        <item name="backgroundTint">?colorOnPrimary</item>
+        <item name="android:textColor">?colorSecondary</item>
+    </style>
+
+
+    <style name="MediumButton.Grey">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="backgroundTint">?colorOnPrimary</item>
+    </style>
+
+    <style name="TabRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/background_tab_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/tab_bar_color</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="buttonCompat">@null</item>
+    </style>
+
+    <!--    CardView Style-->
+    <style name="CardViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:elevation">12dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="InputTextLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="helperTextTextColor">?colorPrimary</item>
+    </style>
+
+    <style name="InputEditTextLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="backgroundTintMode">src_over</item>
+        <item name="android:textColor">?colorSecondary</item>
+        <item name="helperTextTextColor">?colorSecondary</item>
+    </style>
+
+    <style name="InputTextLayout.ErrorStyle">
+        <item name="errorEnabled">true</item>
+        <item name="helperTextTextColor">?colorSecondary</item>
+        <item name="errorIconDrawable">@drawable/ic_error</item>
+    </style>
+
+    <style name="ViewDivider">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:textColorPrimary</item>
+    </style>
+
+    <style name="OtpInputEditText">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:backgroundTint">?colorOnSurface</item>
+    </style>
 </resources>

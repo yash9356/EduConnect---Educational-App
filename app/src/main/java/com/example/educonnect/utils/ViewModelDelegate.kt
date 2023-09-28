@@ -1,5 +1,5 @@
 @file:Suppress("unused", "UNCHECKED_CAST")
-package com.example.alphahour.utils
+package com.example.educonnect.utils
 
 import android.view.View
 import androidx.fragment.app.Fragment

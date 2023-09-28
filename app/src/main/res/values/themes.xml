@@ -130,7 +130,8 @@
         <item name="srcCompat">@drawable/ic_back_button</item>
     </style>
 
-    !--    Scroll View Style  -->
+    !-- Scroll View Style -->
+
     <style name="FillParentScrollViewStyle">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
@@ -245,6 +246,7 @@
         <item name="boxCornerRadiusTopStart">8dp</item>
         <item name="boxCornerRadiusTopEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="iconTint">?colorSecondary</item>
         <item name="boxCornerRadiusBottomEnd">8dp</item>
         <item name="helperTextTextColor">?colorPrimary</item>
     </style>
@@ -254,6 +256,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="backgroundTint">@color/white</item>
         <item name="backgroundTintMode">src_over</item>
+        <item name="iconTint">?colorSecondary</item>
         <item name="android:textColor">?colorSecondary</item>
         <item name="helperTextTextColor">?colorSecondary</item>
     </style>

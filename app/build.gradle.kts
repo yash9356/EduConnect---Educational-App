@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -47,6 +49,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.firebase:firebase-common-ktx:20.3.3")
     // Unit Test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -62,6 +66,10 @@ dependencies {
 
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation("com.google.firebase:firebase-firestore-ktx::32.0.0")
+    implementation("com.google.firebase:firebase-config-ktx:32.0.0")
+    implementation("com.google.firebase:firebase-storage-ktx:32.0.0")
+    implementation("com.google.firebase:firebase-database-ktx:32.0.0")
 
     // Declare the dependencies for the desired Firebase products without specifying versions
     implementation("com.google.firebase:firebase-auth")

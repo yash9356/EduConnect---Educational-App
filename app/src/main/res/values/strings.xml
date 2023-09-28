@@ -1,11 +1,33 @@
 <resources>
     <string name="app_name">EduConnect - Educational App</string>
+    <string name="default_web_client_id">144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com</string>
+
     <string name="info">Info</string>
     <string name="short_app_name">EduConnect</string>
     <string name="company_slogan">Learn Your Way, Anytime, Anywhere!</string>
-    <string name="network_error_please_try">Network error! Please try again\n</string>
+    <string name="network_error_please_try">Network error! Please try again</string>
     <string name="try_again">Try again</string>
     <string name="top_bar">Top bar</string>
     <string name="navigation_drawer_open">Open Drawer</string>
-    <string name="navigation_drawer_close">Close drawer\n</string>
+    <string name="navigation_drawer_close">Close drawer</string>
+    <string name="login_amp_create_account"><![CDATA[Login & Create Account]]></string>
+    <string name="login">Login</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="_91">+91</string>
+    <string name="or">OR</string>
+    <string name="password">Password</string>
+    <string name="otp_verification">Otp verification</string>
+    <string name="one_time_password_have_been_sent_to_your_mobile_number">One Time Password have been sent to your mobile Number</string>
+    <string name="enter_the_otp_sent">Didn\'t Receive OTP?</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="submit">Submit</string>
+    <string name="did_not_receive_the_otp">Didn\'t receive OTP?</string>
+    <string name="verify_contact">Verify contact</string>
+    <string name="verify">Verify</string>
+    <string name="choose_login_option">Choose one of the options below to log in</string>
+    <string name="network_error">Network error, Please try again later</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="user_does_not_have_permission">User doesn\'t have permission</string>
 </resources>

@@ -12,7 +12,20 @@
           "package_name": "com.example.educonnect_educationalapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "144211456939-dc8kn1nssdjrnpgrjcg5vmb8u2fvk1m7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.educonnect_educationalapp",
+            "certificate_hash": "9c3a0c2fa0a9653d2d74faf8696736c0a019ce03"
+          }
+        },
+        {
+          "client_id": "144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBTMYQ6iUGq79mG7BOync0XK0nKHwlbh-s"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

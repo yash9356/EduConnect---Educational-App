@@ -7,6 +7,7 @@ import kotlinx.coroutines.CancellationException
 import androidx.annotation.StringRes
 import com.example.educonnect.EduConnectApplication
 import com.example.educonnect.ui.models.sealedclass.ApiFailure
+import com.example.educonnect.ui.models.sealedclass.BaseState
 import com.example.educonnect.ui.models.user.User
 import com.example.educonnect_educationalapp.R
 import com.google.firebase.auth.FirebaseUser

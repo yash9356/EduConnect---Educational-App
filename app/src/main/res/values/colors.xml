@@ -5,10 +5,10 @@
     <color name="color_primary">#3F51B5</color>
     <color name="background_color">#FBFBFB</color>
     <color name="color_on_surface">#FFFFFF</color>
-    <color name="secondary_text_color">#7C7C81</color>
+    <color name="secondary_text_color">#848484</color>
     <color name="color_secondary">#8293BC</color>
 
     <color name="green_background">#01966E</color>
     <color name="red_background">#CF2B48</color>
-    <color name="icon_color_grey">#7c7c81</color>
+    <color name="icon_color_grey">#848484</color>
 </resources>

@@ -6,12 +6,14 @@ object AppConstants {
      */
     public const val PATH_SEPARATOR: String = "/"
 
-    // region for firestore collections name
-    public const val USERS: String = "users"
+    const val OTP_TIMEOUT_VALUE_IN_MILLIS = 60000L
+    const val OTP_DELAY_TIME_INTERVAL_IN_MILLIS = 1000L
 
-     object FlagConstants{
-        // User Type
-        const val STUDENT = "student"
-        const val EDUCATOR = "educator"
-    }
+    const val IMAGE_MIME_TYPE_INTENT = "image/*"
+    const val PDF_MIME_TYPE = "application/pdf"
+
+
+
+    // firebase path constants
+    public const val USERS: String = "users"
 }

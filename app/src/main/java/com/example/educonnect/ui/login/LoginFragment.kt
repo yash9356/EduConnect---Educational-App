@@ -7,10 +7,13 @@ import android.view.View
 import android.widget.RadioButton
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.educonnect.ui.HomeActivity
 import com.example.educonnect.ui.login.viewmodel.LoginViewModel
 import com.example.educonnect.ui.models.sealedclass.BaseState
+import com.example.educonnect.ui.models.sealedclass.SignUpLoadStateSuccess
 import com.example.educonnect.utils.getStringIdForApiFailure
 import com.example.educonnect.utils.showLoadingState
 import com.example.educonnect.utils.viewBinding
@@ -46,7 +49,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.loginBtn.setOnClickListener {
             if (isPhoneLoginSelected) {
                 val phoneNumber = binding.etNumber.text.toString()
-                toast { phoneNumber }
+                viewModel.performSignIn(phoneNumber, requireActivity())
             } else {
                 val email = binding.etEmail.text.toString()
                 val password = binding.etPassword.text.toString()
@@ -73,10 +76,34 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 is BaseState.Success -> {
                     binding.errorLayout.root.visibility = View.INVISIBLE
 
-                    // navigating to home activity
-                    val intent = Intent(activity, HomeActivity::class.java)
-                    requireActivity().startActivity(intent)
-                    requireActivity().finish()
+                    when(it.data){
+                        SignUpLoadStateSuccess.UserExist -> {}
+                        SignUpLoadStateSuccess.VerificationCodeSent -> {
+                            OtpVerificationFragment.launch(
+                                verificationId = viewModel.storedVerificationId,
+                                mobileNum = binding.etNumber.text.toString(),
+                                findNavController()
+                            )
+                            setFragmentResultListener(
+                                OtpVerificationFragment.OTP_VERIFICATION_REQ
+                            ) { requestKey, bundle ->
+                                if (requestKey == OtpVerificationFragment.OTP_VERIFICATION_REQ &&
+                                    OtpVerificationFragment.isSuccessOtpValidation(bundle)
+                                ) {
+                                    startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                                    requireActivity().finish()
+                                }
+                            }
+
+                        }
+                        SignUpLoadStateSuccess.VerificationSuccessFul -> {
+                            // this is the case when we don't need otp for user verification
+                            // we need to still check all the required field
+                            startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                            requireActivity().finish()
+                        }
+                    }
+                    viewModel.resetSignUpState()
                 }
 
                 null -> {
@@ -141,7 +168,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account = task.getResult(ApiException::class.java)
-                viewModel.loginWithGoogle(account, requireActivity())
+                viewModel.loginWithGoogle(account)
             } catch (e: Exception) {
                 toast { e.toString() }
             }

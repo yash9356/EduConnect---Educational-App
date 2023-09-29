@@ -10,23 +10,49 @@ import com.example.educonnect.ui.models.sealedclass.ApiFailure
 import com.example.educonnect.ui.models.user.User
 import com.example.educonnect_educationalapp.R
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.ktx.Firebase
 import java.util.UUID
 
 class AppUtils {
-    fun getNewStudentUser(id: String?, fireBaseUser: FirebaseUser?): User {
-        return User(
-            id = id ?: UUID.randomUUID().toString(),
-            creationDate = System.currentTimeMillis(),
-            lastLoginDate = System.currentTimeMillis(),
-            lastUpdateDate = System.currentTimeMillis(),
+}
+
+public fun String.toE164Format(): String = "+91$this"
+
+public fun <T> unsafeLazy(initializer: () -> T): Lazy<T> {
+    return lazy(LazyThreadSafetyMode.NONE, initializer)
+}
+
+inline fun FirebaseUser.toUser(
+    emailId: String?,
+    existingUser: User?,
+    userType: String,
+): User {
+    val operationTimeInMillis = System.currentTimeMillis()
+    return if (existingUser == null) {
+        User(
+            id = this.uid,
+            creationDate = this.metadata?.creationTimestamp ?: operationTimeInMillis,
+            lastUpdateDate = operationTimeInMillis,
+            lastLoginDate = this.metadata?.lastSignInTimestamp ?: operationTimeInMillis,
+            emailId = emailId ?: this.email,
             gender = null,
-            emailId = fireBaseUser?.email,
             name = null,
-            phoneNumber = fireBaseUser?.phoneNumber,
+            phoneNumber = this.phoneNumber,
             profilePic = null,
-            type = AppConstants.FlagConstants.STUDENT
+            type = userType
         )
+    } else {
+        updateUser(existingUser)
     }
+}
+
+@PublishedApi
+internal fun FirebaseUser.updateUser(existingUser: User): User {
+    val operationTimeInMillis = System.currentTimeMillis()
+    return existingUser.copy(
+        lastLoginDate = this.metadata?.lastSignInTimestamp ?: operationTimeInMillis,
+        lastUpdateDate = operationTimeInMillis,
+    )
 }
 
 inline fun <M> runCoroutineCatching(block: () -> M, errorBlock: (Throwable) -> M): M {

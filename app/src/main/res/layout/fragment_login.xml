@@ -11,11 +11,12 @@
         android:paddingHorizontal="8dp">
 
         <include
+            android:id="@+id/screen_title"
             layout="@layout/layout_screen_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,6 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
             tools:visibility="visible">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +103,7 @@
                     app:layout_constraintTop_toBottomOf="@id/login_with_tab_group"
                     app:prefixText="@string/_91"
                     app:startIconDrawable="@drawable/ic_phone_24"
-                    app:startIconTint="?colorPrimary">
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_number"
@@ -120,8 +122,7 @@
                     app:layout_constraintEnd_toEndOf="@id/login_with_tab_group"
                     app:layout_constraintStart_toStartOf="@id/login_with_tab_group"
                     app:layout_constraintTop_toBottomOf="@id/login_with_tab_group"
-                    app:startIconDrawable="@drawable/ic_email_black"
-                    app:startIconTint="?colorPrimary">
+                    app:startIconDrawable="@drawable/ic_email_black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
@@ -143,8 +144,7 @@
                     app:layout_constraintEnd_toEndOf="@id/input_email"
                     app:layout_constraintStart_toStartOf="@id/input_email"
                     app:layout_constraintTop_toBottomOf="@id/input_email"
-                    app:startIconDrawable="@drawable/ic_password"
-                    app:startIconTint="?colorPrimary">
+                    app:startIconDrawable="@drawable/ic_password">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
@@ -192,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:src="@drawable/ic_google"
                     app:layout_constraintEnd_toEndOf="@id/guideline"
                     app:layout_constraintStart_toStartOf="parent"
@@ -209,7 +209,7 @@
                     android:id="@+id/email_login_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/ic_email"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -221,7 +221,7 @@
                     android:id="@+id/phone_login_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/ic_message"
                     android:visibility="invisible"

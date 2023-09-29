@@ -21,6 +21,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.ObjectKey
 import com.example.educonnect_educationalapp.R
 import com.example.educonnect_educationalapp.databinding.LayoutEmptyOrErrorStateBinding
+import com.example.educonnect_educationalapp.databinding.LayoutProgressButtonBinding
 import com.example.educonnect_educationalapp.databinding.LayoutTopBarBinding
 
 private const val IMAGE_HASH = "hash"
@@ -63,6 +64,16 @@ fun LayoutTopBarBinding.setTitleToolbar(@StringRes titleRes: Int) {
     this.tvTitle.setText(titleRes)
     this.btnBack.isVisible = false
     this.btnInfo.isVisible = false
+}
+
+fun LayoutProgressButtonBinding.hideProgressBar() {
+    this.buttonProgressBar.visibility = View.INVISIBLE
+    this.btnAction.visibility = View.VISIBLE
+}
+
+fun LayoutProgressButtonBinding.showProgressBar() {
+    this.buttonProgressBar.visibility = View.VISIBLE
+    this.btnAction.visibility = View.INVISIBLE
 }
 
 fun LayoutEmptyOrErrorStateBinding.showLoadingState() {

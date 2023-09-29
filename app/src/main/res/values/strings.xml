@@ -30,4 +30,6 @@
     <string name="network_error">Network error, Please try again later</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="user_does_not_have_permission">User doesn\'t have permission</string>
+    <string name="verification_error">Verification error, please try again later</string>
+    <string name="enter_otp">Please enter OTP</string>
 </resources>

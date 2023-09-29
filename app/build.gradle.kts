@@ -66,10 +66,6 @@ dependencies {
 
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
-    implementation("com.google.firebase:firebase-firestore-ktx::32.0.0")
-    implementation("com.google.firebase:firebase-config-ktx:32.0.0")
-    implementation("com.google.firebase:firebase-storage-ktx:32.0.0")
-    implementation("com.google.firebase:firebase-database-ktx:32.0.0")
 
     // Declare the dependencies for the desired Firebase products without specifying versions
     implementation("com.google.firebase:firebase-auth")

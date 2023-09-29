@@ -11,7 +11,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.educonnect_educationalapp"
+        applicationId = "com.example.educonnect"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

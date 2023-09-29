@@ -12,6 +12,7 @@ object AppConstants {
     const val IMAGE_MIME_TYPE_INTENT = "image/*"
     const val PDF_MIME_TYPE = "application/pdf"
 
+    const val PHONE_NUMBER_LENGTH = 10
 
 
     // firebase path constants

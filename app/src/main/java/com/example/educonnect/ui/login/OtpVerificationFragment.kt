@@ -42,6 +42,7 @@ class OtpVerificationFragment : Fragment(R.layout.fragment_otp_verification) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.toolbarLayout.tvTitle.text = getString(R.string.verify_contact)
+        binding.btnProgressLayout.btnAction.text = getString(R.string.verify)
         binding.txtMobileNumber.text = mobileNum.toE164Format()
         binding.btnProgressLayout.btnAction.setOnClickListener {
             verifyData(authVerificationId)

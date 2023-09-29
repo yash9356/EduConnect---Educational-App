@@ -14,8 +14,10 @@ import com.example.educonnect.ui.HomeActivity
 import com.example.educonnect.ui.login.viewmodel.LoginViewModel
 import com.example.educonnect.ui.models.sealedclass.BaseState
 import com.example.educonnect.ui.models.sealedclass.SignUpLoadStateSuccess
+import com.example.educonnect.utils.AppConstants
 import com.example.educonnect.utils.getStringIdForApiFailure
 import com.example.educonnect.utils.showLoadingState
+import com.example.educonnect.utils.showProgressBar
 import com.example.educonnect.utils.viewBinding
 import com.example.educonnect.utils.toast
 import com.example.educonnect_educationalapp.R
@@ -38,6 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         savedInstanceState?.let {
             isPhoneLoginSelected = it.getBoolean(IS_PHONE_LOGIN_SELECTED)
         }
+        binding.btnProgressLayout.btnAction.text = getString(R.string.login)
         setUpTabUi()
         setUpGoogleSignIn()
         observeSignUpLoadState()
@@ -46,14 +49,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             binding.inputPassword.isGone = false
             binding.inputNumber.isVisible = false
         }
-        binding.loginBtn.setOnClickListener {
+        binding.btnProgressLayout.btnAction.setOnClickListener {
             if (isPhoneLoginSelected) {
                 val phoneNumber = binding.etNumber.text.toString()
-                viewModel.performSignIn(phoneNumber, requireActivity())
+                if (phoneNumber.length == AppConstants.PHONE_NUMBER_LENGTH) {
+                    binding.btnProgressLayout.showProgressBar()
+                    viewModel.performSignIn(phoneNumber, requireActivity())
+                } else {
+                    binding.inputNumber.error = getString(R.string.enter_correct_phone_number)
+                }
             } else {
                 val email = binding.etEmail.text.toString()
                 val password = binding.etPassword.text.toString()
-                viewModel.loginWithEmail(email, password)
+                if (email.isNotBlank()) {
+                    if (password.isNotBlank()) {
+                        binding.btnProgressLayout.showProgressBar()
+                        viewModel.loginWithEmail(email, password)
+                    } else {
+                        binding.inputPassword.error =
+                            getString(R.string.please_enter_valid_password)
+                    }
+                } else {
+                    binding.inputEmail.error = getString(R.string.please_enter_valid_email)
+                }
             }
         }
     }
@@ -76,7 +94,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 is BaseState.Success -> {
                     binding.errorLayout.root.visibility = View.INVISIBLE
 
-                    when(it.data){
+                    when (it.data) {
                         SignUpLoadStateSuccess.UserExist -> {}
                         SignUpLoadStateSuccess.VerificationCodeSent -> {
                             OtpVerificationFragment.launch(
@@ -90,12 +108,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 if (requestKey == OtpVerificationFragment.OTP_VERIFICATION_REQ &&
                                     OtpVerificationFragment.isSuccessOtpValidation(bundle)
                                 ) {
-                                    startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                                    startActivity(
+                                        Intent(
+                                            requireActivity(),
+                                            HomeActivity::class.java
+                                        )
+                                    )
                                     requireActivity().finish()
                                 }
                             }
-
                         }
+
                         SignUpLoadStateSuccess.VerificationSuccessFul -> {
                             // this is the case when we don't need otp for user verification
                             // we need to still check all the required field

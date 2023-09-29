@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "144211456939",
-    "project_id": "educonnect-71a7d",
-    "storage_bucket": "educonnect-71a7d.appspot.com"
+    "project_number": "183390815625",
+    "project_id": "educonnect-bf8c8",
+    "storage_bucket": "educonnect-bf8c8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:144211456939:android:73fa7ccf03a4284b7558ee",
+        "mobilesdk_app_id": "1:183390815625:android:c39a4b2cf4302baabb8d58",
         "android_client_info": {
-          "package_name": "com.example.educonnect_educationalapp"
+          "package_name": "com.example.educonnect"
         }
       },
       "oauth_client": [
         {
-          "client_id": "144211456939-dc8kn1nssdjrnpgrjcg5vmb8u2fvk1m7.apps.googleusercontent.com",
+          "client_id": "183390815625-33sdjk8i4u1q98nuojosjav3t7rac6ph.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.educonnect_educationalapp",
+            "package_name": "com.example.educonnect",
             "certificate_hash": "9c3a0c2fa0a9653d2d74faf8696736c0a019ce03"
           }
         },
         {
-          "client_id": "144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com",
+          "client_id": "183390815625-b8r6q0hoi4obc45behm0k25p72i0mgud.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBTMYQ6iUGq79mG7BOync0XK0nKHwlbh-s"
+          "current_key": "AIzaSyDvR_keTe7xiAgJy9Es-KpActAzUD6skY4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com",
+              "client_id": "183390815625-b8r6q0hoi4obc45behm0k25p72i0mgud.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">EduConnect - Educational App</string>
-    <string name="default_web_client_id">144211456939-lm1kaojnpalqgpmsunvcq7t1ehnsckfj.apps.googleusercontent.com</string>
+    <string name="default_web_client_id">183390815625-b8r6q0hoi4obc45behm0k25p72i0mgud.apps.googleusercontent.com</string>
 
     <string name="info">Info</string>
     <string name="short_app_name">EduConnect</string>
@@ -32,4 +32,7 @@
     <string name="user_does_not_have_permission">User doesn\'t have permission</string>
     <string name="verification_error">Verification error, please try again later</string>
     <string name="enter_otp">Please enter OTP</string>
+    <string name="enter_correct_phone_number">Enter correct phone number</string>
+    <string name="please_enter_valid_email">Please enter valid email</string>
+    <string name="please_enter_valid_password">Please enter valid password</string>
 </resources>

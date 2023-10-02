@@ -35,4 +35,8 @@
     <string name="enter_correct_phone_number">Enter correct phone number</string>
     <string name="please_enter_valid_email">Please enter valid email</string>
     <string name="please_enter_valid_password">Please enter valid password</string>
+    <string name="about_us">About us</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="hi_s">Hi, %s</string>
 </resources>

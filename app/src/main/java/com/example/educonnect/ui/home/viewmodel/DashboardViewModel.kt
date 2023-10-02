@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.educonnect.repo.EduResourcesRepo
 import com.example.educonnect.repo.UserRepo
+import com.example.educonnect.ui.models.resources.EducationalVideo
 import com.example.educonnect.ui.models.sealedclass.ApiFailure
 import com.example.educonnect.ui.models.sealedclass.BaseState
 import com.example.educonnect.ui.models.user.User
@@ -21,14 +23,25 @@ class DashboardViewModel : ViewModel() {
         UserRepo()
     }
 
+    private val eduResourcesRepo: EduResourcesRepo by lazy {
+        EduResourcesRepo()
+    }
+
     var userData: User? = null
     private val userMutableLiveData = MutableLiveData<BaseState<User, ApiFailure>>()
     val userLiveData: LiveData<BaseState<User, ApiFailure>>
         get() = userMutableLiveData
 
+    private val educationVideosMutableLiveData =
+        MutableLiveData<BaseState<List<EducationalVideo>, ApiFailure>>()
+    val educationVideosLiveData: LiveData<BaseState<List<EducationalVideo>, ApiFailure>>
+        get() = educationVideosMutableLiveData
+
     init {
         loadUser()
+        getVideoData()
     }
+
     private fun loadUser() {
         viewModelScope.launch {
             userMutableLiveData.value = runCoroutineCatching({
@@ -43,6 +56,18 @@ class DashboardViewModel : ViewModel() {
                 } else {
                     BaseState.Failed(ApiFailure.Unauthorised)
                 }
+            }) {
+                BaseState.Failed(ApiFailure.Unknown(it))
+            }
+        }
+    }
+
+    private fun getVideoData() {
+        viewModelScope.launch {
+            educationVideosMutableLiveData.value = BaseState.Loading
+            educationVideosMutableLiveData.value = runCoroutineCatching({
+                val list = eduResourcesRepo.loadVideoResources()
+                BaseState.Success(list)
             }) {
                 BaseState.Failed(ApiFailure.Unknown(it))
             }

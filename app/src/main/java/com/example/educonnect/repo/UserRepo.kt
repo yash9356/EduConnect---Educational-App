@@ -23,4 +23,10 @@ class UserRepo {
             mapOf(PropertyNameConstants.NAME to userName)
         ).await()
     }
+
+    suspend fun updateUserProfile(userId: String, profileUrl: String) {
+        FirebaseFirestore.getInstance().collection(AppConstants.USERS).document(userId).update(
+            mapOf(PropertyNameConstants.PROFILE_PIC to profileUrl)
+        ).await()
+    }
 }

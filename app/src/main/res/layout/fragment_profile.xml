@@ -1,0 +1,117 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/user_profile"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/user_profile"
+            app:layout_constraintBottom_toTopOf="@+id/et_user_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/ic_user" />
+
+        <ImageView
+            android:id="@+id/btn_image_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/add_profile_pic"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile"
+            app:layout_constraintEnd_toEndOf="@id/user_profile"
+            app:srcCompat="@drawable/ic_add_a_photo_24" />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            style="@style/SubTitle.Bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@color/white"
+            android:drawableEnd="@drawable/ic_edit_24"
+            android:gravity="center"
+            android:hint="@string/enter_your_name_here"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/user_phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_profile"
+            tools:text="Ritesh Sharma" />
+
+        <TextView
+            android:id="@+id/user_phone_number"
+            style="@style/Title.Bold"
+            android:layout_width="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/inter_semibold"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/user_email_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_user_name"
+            tools:text="+91 9863527262" />
+
+        <include
+            android:id="@+id/btn_progress_layout"
+            layout="@layout/layout_progress_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_user_name"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/user_email_id"
+            style="@style/Title.Bold"
+            android:layout_width="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/inter_semibold"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_progress_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_phone_number"
+            tools:text="xxxxxxxxx108@gmail.com" />
+
+        <include
+            android:id="@+id/error_layout"
+            layout="@layout/layout_empty_or_error_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

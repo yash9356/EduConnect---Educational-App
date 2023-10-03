@@ -39,4 +39,13 @@
     <string name="settings">Settings</string>
     <string name="share">Share</string>
     <string name="hi_s">Hi, %s</string>
+    <string name="please_set_your_profile">Please set your profile</string>
+    <string name="do_you_want_to_signout">Do you want to signOut</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="user_profile">User Profile</string>
+    <string name="add_profile_pic">Add profile pic</string>
+    <string name="enter_your_name_here">enter your name here</string>
+    <string name="save">Save</string>
+    <string name="user_cancelled_the_operation">User cancelled the operation</string>
 </resources>

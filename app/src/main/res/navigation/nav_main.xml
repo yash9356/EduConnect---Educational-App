@@ -23,4 +23,9 @@
         android:name="com.example.educonnect.ui.home.ShareFragment"
         android:label="fragment_share"
         tools:layout="@layout/fragment_share" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.educonnect.ui.home.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.educonnect.ui.models.resources.EducationalVideo" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tender_detail_cardview"
+        style="@style/CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:minHeight="180dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/poster"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/ic_image_placeholder"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:backgroundTint="?colorPrimary"
+                android:elevation="10dp"
+                android:rating="@{data.rating}"
+                android:stepSize="10"
+                app:layout_constraintBottom_toBottomOf="@id/poster"
+                app:layout_constraintStart_toStartOf="@id/poster"
+                tools:rating="4.6" />
+
+            <TextView
+                android:id="@+id/video_title"
+                style="@style/SubHeadLine.ColorPrimary"
+                android:layout_width="0dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{data.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/poster"
+                app:layout_constraintTop_toBottomOf="@id/poster"
+                tools:text="Java development" />
+
+            <TextView
+                android:id="@+id/video_description"
+                style="@style/SubHeadLine.Simple"
+                android:layout_width="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{data.description}"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/video_title"
+                app:layout_constraintStart_toStartOf="@id/video_title"
+                app:layout_constraintTop_toBottomOf="@id/video_title"
+                tools:text="loren" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

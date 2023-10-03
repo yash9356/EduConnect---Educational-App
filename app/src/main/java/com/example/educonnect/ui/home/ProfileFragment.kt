@@ -32,6 +32,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private val openImageContract =
         registerForActivityResult(ActivityResultContracts.GetContent()) {
             if (it != null) {
+                val placeHolder =
+                    AppCompatResources.getDrawable(
+                        requireContext(),
+                        R.drawable.ic_user
+                    )
+                Glide.with(requireContext())
+                    .load(it)
+                    .placeholder(placeHolder)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .into(binding.userProfile)
                 dashboardViewModel.updateUserProfilePic(it)
             } else {
                 toast { getString(R.string.user_cancelled_the_operation) }
@@ -40,11 +50,18 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnProgressLayout.btnAction.text = getString(R.string.save)
         binding.btnProgressLayout.btnAction.setOnClickListener {
             val newUserName = binding.etUserName.text.toString()
             if (dashboardViewModel.userData?.name != newUserName && newUserName.isNotBlank()) {
                 dashboardViewModel.updateUserName(newUserName)
             }
+        }
+        binding.btnImageSelection.setOnClickListener {
+            openImageContract.launch(AppConstants.IMAGE_MIME_TYPE_INTENT)
+        }
+        binding.userProfile.setOnClickListener {
+            openImageContract.launch(AppConstants.IMAGE_MIME_TYPE_INTENT)
         }
         dashboardViewModel.userLiveData.observe(viewLifecycleOwner) {
             when (it) {
@@ -62,32 +79,39 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     showUi(user)
                     if (user.name == null) {
                         val dialog = Dialog(requireContext())
-                        val binding =
+                        val bindingProfileInfoInput =
                             ProfileInputDialogBinding.inflate(LayoutInflater.from(context))
-                        dialog.setContentView(binding.root)
+                        dialog.setContentView(bindingProfileInfoInput.root)
+                        dialog.window?.setLayout(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
                         dashboardViewModel.userData?.profilePic?.let {
                             val placeHolder =
                                 AppCompatResources.getDrawable(
-                                    binding.root.context,
+                                    bindingProfileInfoInput.root.context,
                                     R.drawable.ic_user
                                 )
                             Glide.with(requireContext())
                                 .load(it)
                                 .placeholder(placeHolder)
                                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                                .into(binding.userProfile)
+                                .into(bindingProfileInfoInput.userProfile)
                         }
-                        binding.btnImageSelection.setOnClickListener {
+                        bindingProfileInfoInput.btnImageSelection.setOnClickListener {
                             openImageContract.launch(AppConstants.IMAGE_MIME_TYPE_INTENT)
                         }
-                        binding.userProfile.setOnClickListener {
+                        bindingProfileInfoInput.userProfile.setOnClickListener {
                             openImageContract.launch(AppConstants.IMAGE_MIME_TYPE_INTENT)
                         }
-                        binding.btnProgressLayout.btnAction.text = getString(R.string.save)
-                        binding.btnProgressLayout.btnAction.setOnClickListener {
-                            val userName = binding.etUserName.text.toString()
+                        bindingProfileInfoInput.btnProgressLayout.btnAction.text =
+                            getString(R.string.save)
+                        bindingProfileInfoInput.btnProgressLayout.btnAction.setOnClickListener {
+                            val userName =
+                                bindingProfileInfoInput.etUserName.text.toString()
                             if (userName.isNotBlank()) {
                                 dashboardViewModel.updateUserName(userName)
+                                dialog.dismiss()
                             } else {
                                 toast { "Please enter your username" }
                             }

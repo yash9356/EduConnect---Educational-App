@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -53,9 +54,14 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                     val user = it.data
                     if (user.name == null) {
                         val dialog = Dialog(requireContext())
+                        dialog.window?.setLayout(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
                         val binding =
                             ProfileInputDialogBinding.inflate(LayoutInflater.from(context))
                         dialog.setContentView(binding.root)
+                        binding.btnImageSelection.isVisible = false
                         binding.btnImageSelection.setOnClickListener {
                             openImageContract.launch(IMAGE_MIME_TYPE_INTENT)
                         }
@@ -67,6 +73,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                             val userName = binding.etUserName.text.toString()
                             if (userName.isNotBlank()){
                                 dashboardViewModel.updateUserName(userName)
+                                dialog.dismiss()
                             } else{
                                 toast { "Please enter your username" }
                             }

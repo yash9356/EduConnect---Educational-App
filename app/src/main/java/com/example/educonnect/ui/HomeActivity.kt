@@ -57,13 +57,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_about_us -> navController.navigate(R.id.aboutUsFragment)
 
             R.id.nav_logout -> {
-                AlertDialog.Builder(applicationContext)
+                AlertDialog.Builder(baseContext)
                     .setTitle(getString(R.string.do_you_want_to_signout))
                     .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
                         dashboardViewModel.signOut()
                         startActivity(Intent(this, LoginActivity::class.java))
                         this.finish()
-                        dialog.dismiss()
                     }
                     .setNegativeButton(getString(R.string.no)) { dialog, _ ->
                         dialog.dismiss()

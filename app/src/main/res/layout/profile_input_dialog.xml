@@ -62,6 +62,7 @@
                 <EditText
                     android:id="@+id/et_user_name"
                     style="@style/SubTitle.Bold"
+                    android:layout_width="match_parent"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="12dp"
